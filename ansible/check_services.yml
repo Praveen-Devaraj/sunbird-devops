@@ -61,8 +61,8 @@
 
 - hosts: dp-influx-ps
   tasks:
-    - name: Check influxdb service status
-      service:
-        name: influxdb
-        state: started
+    - name: Check InfluxDB service status
+      shell: systemctl is-active influxdb
       register: influxdb_status
+    - debug:
+        msg: "InfluxDB service is {{ 'running' if influxdb_status.rc == 0 else 'not running' }}"
