@@ -6,13 +6,13 @@
         state: started
       register: keycloak_status
       
-# - hosts: cassandra  
-#  tasks:
-#    - name: Check Cassandra service status
-#      service:
-#        name: cassandra
-#        state: started
-#      register: cassandra_status
+- hosts: cassandra  
+  tasks:
+    - name: Check Cassandra service status
+      service:
+        name: cassandra
+        state: started
+      register: cassandra_status
       
 - hosts: lp-neo4j-ps
   tasks:
